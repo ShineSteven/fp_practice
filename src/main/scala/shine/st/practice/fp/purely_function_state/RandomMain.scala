@@ -12,8 +12,9 @@ object RandomMain {
     //    println(RNG.sequence(List(RNG.unit(1),RNG.unit(2),RNG.unit(3)))(s))
     //    println(RNG.sequence_1(List(RNG.unit(1),RNG.unit(2),RNG.unit(3)))(s))
 
-    println(RNG.rollDie(s))
-    println(RNG.rollDie(s))
+    val a = RNG.rollDie(s)
+    println(a)
+    println(RNG.rollDie(a._2))
 
   }
 }

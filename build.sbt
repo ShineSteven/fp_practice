@@ -15,3 +15,7 @@ libraryDependencies += "org.scalaz" %% "scalaz-core" % "7.2.8"
 libraryDependencies += "org.typelevel" %% "cats" % "0.8.1"
 
 libraryDependencies += "com.typesafe" % "config" % "1.3.1"
+
+libraryDependencies +=  "com.chuusai" %% "shapeless" % "2.3.2"
+
+libraryDependencies += "org.spire-math" %% "jawn-ast" % "0.11.0"
