@@ -1,7 +1,5 @@
 package shine.st.practice.fp.purely_function_state
 
-import scala.annotation.tailrec
-
 /**
   * Created by shinest on 2016/9/30.
   */
@@ -161,7 +159,7 @@ object RNG {
 
   // graceful answer
   def sequence_1[A](fs: List[Rand[A]]): Rand[List[A]] =
-  fs.foldRight(unit(List[A]()))((f, acc) => map2(f, acc)(_ :: _))
+    fs.foldRight(unit(List[A]()))((f, acc) => map2(f, acc)(_ :: _))
 
   //  exercise 6.7 page 85 end
 
@@ -173,12 +171,13 @@ object RNG {
 
   //  my answer
   def nonNegativeLessThan(n: Int): Rand[Int] = {
-    flatMap(nonNegativeInt) { a => rng =>
-      val mod = a % n
-      if (a + (n - 1) - mod >= 0)
-        (mod, rng)
-      else
-        nonNegativeLessThan(n)(rng)
+    flatMap(nonNegativeInt) { a =>
+      rng =>
+        val mod = a % n
+        if (a + (n - 1) - mod >= 0)
+          (mod, rng)
+        else
+          nonNegativeLessThan(n)(rng)
     }
   }
 
@@ -217,8 +216,10 @@ object RNG {
   //  exercise 6.9 page 87 end
 
 
-  def rollDie = map(nonNegativeLessThan(6))(_+1)
+  def rollDie = map(nonNegativeLessThan(6))(_ + 1)
+
   import scala.util.Random
+
   Random.nextInt()
 }
 
